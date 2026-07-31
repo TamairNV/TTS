@@ -83,7 +83,7 @@ class VoiceGenerator:
                 text=seg["text"],
                 ref_audio=ref_audio,
                 cfg_weight=cfg_weight,
-                exaggeration=exaggeration,
+                exaggeration=exaggeration+0.2,
             )
 
             audio_clips.append(wav)
@@ -120,10 +120,10 @@ if __name__ == "__main__":
         # 1. Casual opener - low CFG for a slow, laid-back Texas drawl
         {
             "text": (
-                "Say man... [snort] remember last week... when we were playin'"
+                "Say man... remember last week... when we were playin'"
                 " Catan... with Bobby?"
             ),
-            "pause_after": 0.8,
+            "pause_after": 0.5,
             "params": {"cfg_weight": 0.3, "exaggeration": 0.4},
         },
         # 2. NPC2 simple reaction - short and direct
@@ -150,12 +150,11 @@ if __name__ == "__main__":
         # 5. [Passionate / Smooth] - Bumping exaggeration slightly for rhythm & flavor words
         {
             "text": (
-                "I'm talkin' about the way he moves those little wooden"
-                " pieces... [sigh] and builds... that long... beautiful road of his."
-                " Pure poetry, bro."
+                "I'm talkin' about the WAY he moves those little wooden pieces... [sigh]"
+                " and builds... that long... BEAUTIFUL road of his!"
             ),
-            "pause_after": 1.5,  # Let the absurd statement sink in
-            "params": {"cfg_weight": 0.32, "exaggeration": 0.6},
+            "pause_after": 1.2,
+            "params": {"cfg_weight": 0.45, "exaggeration": 0.88},
         },
         # 6. NPC2 Unsure / Hesitant
         {
